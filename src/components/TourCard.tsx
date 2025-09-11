@@ -1,18 +1,12 @@
 import { Tour } from "@/types/tour";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ImageContainer from "./ImageContainer";
 
 const TourCard = ({ tour }: { tour: Tour }) => {
   return (
     <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden hover:shadow-xl transition-shadow">
-      <Image
-        src={"https://www.marveltours.in/frontend/new/images/kerala.jpg"}
-        alt={tour.name}
-        width={400}
-        height={300}
-        className="h-48 w-full object-cover"
-      />
+      <ImageContainer tour={tour} />
       <div className="p-4">
         <h2 className="text-xl text-gray-700 font-semibold">{tour.name}</h2>
         <p className="text-gray-600 text-sm mt-2 line-clamp-3">

@@ -21,7 +21,11 @@ export default async function TourDetailPage({
       {/* Hero Section */}
       <section className="relative w-full h-96 rounded-2xl overflow-hidden shadow-lg">
         <Image
-          src={tour.imageCover ? `/${tour.imageCover}` : "/fallback.jpg"}
+          src={
+            tour.imageCover.startsWith("https://")
+              ? tour.imageCover
+              : "https://www.marveltours.in/frontend/new/images/kerala.jpg"
+          }
           alt={tour.name}
           fill
           priority
@@ -65,7 +69,11 @@ export default async function TourDetailPage({
           {tour.images.map((img, i) => (
             <Image
               key={i}
-              src={`/${img}`}
+              src={
+                img.startsWith("https://")
+                  ? img
+                  : "https://www.marveltours.in/frontend/new/images/kerala.jpg"
+              }
               alt={`${tour.name} image ${i + 1}`}
               width={400}
               height={250}

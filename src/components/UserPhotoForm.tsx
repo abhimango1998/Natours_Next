@@ -28,12 +28,11 @@ export default function UserPhotoForm({ userImg }: { userImg: string }) {
     setStatus("Uploading...");
 
     const res = await fetch("/api/updateMe", {
-      method: "PATCH", // or "POST"
+      method: "PATCH",
       body: formData,
     });
 
     const data = await res.json();
-    console.log("-----data----", data);
 
     if (res.ok) {
       setStatus("Upload successful!");

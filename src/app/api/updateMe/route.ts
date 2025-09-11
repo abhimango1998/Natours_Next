@@ -5,9 +5,6 @@ import { NextResponse } from "next/server";
 export async function PATCH(request: Request) {
   const formData = await request.formData();
   console.log("-----formData----", formData);
-  const photo = formData.get("photo");
-
-  console.log("----photo----", photo);
 
   const token = await getTokenFromCookie();
 
