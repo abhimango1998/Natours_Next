@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Tour } from "@/types/tour";
 import { getTour } from "@/lib/api/toursApi";
+import BookTourBtn from "@/components/BookTourBtn";
 
 export default async function TourDetailPage({
   params,
@@ -35,6 +36,9 @@ export default async function TourDetailPage({
           <h1 className="text-4xl md:text-6xl font-extrabold text-white text-center">
             {tour.name}
           </h1>
+          <div>
+            <BookTourBtn tourID={tour._id} />
+          </div>
         </div>
       </section>
 
