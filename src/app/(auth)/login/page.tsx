@@ -2,11 +2,9 @@
 
 import { useUserContext } from "@/context/UserContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const LoginPage = () => {
-  const router = useRouter();
   const { setUser } = useUserContext();
   const [formData, setFormData] = useState({
     email: "",
@@ -28,7 +26,7 @@ const LoginPage = () => {
     const data = await res.json();
     if (res.ok) {
       setUser(data.data.user);
-      router.push("/");
+      window.location.href = "/";
     }
   };
 
