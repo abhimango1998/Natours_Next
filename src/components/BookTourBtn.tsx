@@ -13,14 +13,19 @@ const BookTourBtn = ({ tourID }: { tourID: string }) => {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/bookings/checkout-session/${tourID}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-        }
-      );
+      // const res = await fetch(
+      //   `${process.env.NEXT_PUBLIC_API_URL}/bookings/checkout-session/${tourID}`,
+      //   {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     credentials: "include",
+      //   }
+      // );
+
+      const res = await fetch(`api/bookings/checkout-session/${tourID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (!res.ok) {
         throw new Error("Creating bookings checkout sessions got failed!");
